@@ -16,8 +16,20 @@ const addBook = async (book) => {
     },
   });
 };
+const removeBook = async (id) => {
+  const reqURL = `${API_LINK}/books/${id}`;
+  await fetch(reqURL, {
+    method: 'DELETE',
+    body: JSON.stringify({
+      item_id: id,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+};
 const BookServer = {
-  getBooks, addBook,
+  getBooks, addBook, removeBook,
 };
 
 export default BookServer;

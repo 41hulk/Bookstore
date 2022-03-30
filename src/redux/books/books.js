@@ -48,9 +48,11 @@ export const getBookList = () => async (dispatch) => {
     payload,
   });
 };
-export function removeBookAction(id) {
-  return {
+export const removeBookAction = (id) => async (dispatch) => {
+  await BookServer.removeBook(id);
+
+  dispatch({
     type: REMOVE_BOOK,
     id,
-  };
-}
+  });
+};
