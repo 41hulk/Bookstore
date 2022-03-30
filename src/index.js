@@ -5,11 +5,13 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import rootReducer from './redux/configureStore';
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const middleWare = [thunk];
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(...middleWare)));
 
 ReactDOM.render(
   <React.StrictMode>
