@@ -1,18 +1,18 @@
-// Actions
-const CHECK_STATUS = 'CHECK_STATUS';
+const UNDER_CONSTRUCTION = 'UNDER_CONSTRUCTION';
 
-// Reducer
-export default function reducer(state = [], action) {
-  switch (action.type) {
-    case CHECK_STATUS:
-      return 'Under construction';
-    default: return state;
+const initialState = '';
+
+// action creators
+export const checkStatus = () => ({
+  type: UNDER_CONSTRUCTION,
+});
+
+// reducers
+
+const statusReducer = (state = initialState, action = {}) => {
+  if (action.type === UNDER_CONSTRUCTION) {
+    return 'Under Construction';
   }
-}
-
-// Action creators
-export function checkStatusAction() {
-  return {
-    type: CHECK_STATUS,
-  };
-}
+  return state;
+};
+export default statusReducer;
