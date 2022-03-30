@@ -1,12 +1,16 @@
-import { useDispatch } from 'react-redux';
-import { checkStatusAction } from '../redux/categories/categories';
+import { useDispatch, useSelector } from 'react-redux';
+import { checkStatus } from '../redux/categories/categories';
 
 const StatusButton = () => {
   const dispatch = useDispatch();
-
-  const click = () => dispatch(checkStatusAction());
+  const status = useSelector((state) => state.statusReducer);
+  const checkStat = () => dispatch(checkStatus());
   return (
-    <button type="button" className="check-status" onClick={click}>Check Status</button>
+    <>
+      <p>{status}</p>
+      <button type="button" className="check-status" onClick={checkStat}>CheckStatus</button>
+    </>
+
   );
 };
 
