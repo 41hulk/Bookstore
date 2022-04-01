@@ -7,6 +7,8 @@ const GET_BOOKLIST = 'GET_BOOKLIST';
 // Reducer
 export default function reducer(state = [], action) {
   switch (action.type) {
+    case GET_BOOKLIST:
+      return action.payload;
     case ADD_BOOK:
       return [
         ...state,
