@@ -38,6 +38,11 @@ const Form = () => {
       <fieldset>
         <input type="text" name="title" id="title" value={book.title} placeholder="Book title" onChange={handleChange} required />
         <input type="text" name="author" id="author" value={book.author} placeholder="Author" onChange={handleChange} required />
+        <select id="author">
+          <option value="Action">Adventure</option>
+          <option value="Action">Thriller</option>
+          <option value="Action">Action</option>
+        </select>
         <button type="submit">ADD BOOK</button>
       </fieldset>
     </form>
